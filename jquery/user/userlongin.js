@@ -34,7 +34,14 @@ function login(){
         data:{"name":username,"password":userpassword},
         async:true,
         success:function (data) {
-            alert("1");
+            if(data.retCode == 1){
+                if(data.dataRows == "OrdinaryUser"){
+                    /*证明是普通用户*/
+                    window.location.href = "user.html"
+                }
+            }else{
+                error();
+            }
         },
         error:function () {
             alert("0");
