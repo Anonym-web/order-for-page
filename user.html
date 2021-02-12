@@ -24,7 +24,6 @@
 <div id="navbar-full">
     <div class="container">
         <nav class="navbar navbar-ct-blue navbar-transparent navbar-fixed-top" role="navigation">
-          
           <div class="container">
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
@@ -39,7 +38,8 @@
                         <div class="logo">
                             <img src="assets/img/new_logo.png">
                         </div>
-                         <div id = "ImgDisplay" style="width: 50px;height: 50px;background: red;"></div>
+                         <!--<button type="button" class="btn btn-primary" id = "ImgDisplay" style="width: 50px;height: 50px;border: 1px solid transparent;background-color: #fff;border-color: #457eff;border-radius: 30px" data-toggle="modal" data-target=".bs-example-modal-lg"></button>-->
+
                         <div class="brand" id="userXianshiPhone" style="padding-top: 10px">
                         </div>
                     </div>
@@ -51,12 +51,20 @@
               <ul class="nav navbar-nav navbar-right">
                     <li><a href="components.html" id = "loginOrloginUp">登录/注册</a></li>
 
-                    <li><a href="#/product/get-shit-done-kit" class="btn btn-round btn-default">Download</a></li>
+                    <li style="border: 1px solid white;border-radius: 20px;width: 100px;height: 50px;margin-top: 15px;padding-left: 17px;padding-top: 15px;cursor: pointer" data-toggle="modal" data-target=".bs-example-modal-lg"><span class="glyphicon glyphicon-cog"></span><div style="margin-top: -25px;margin-left: 30px">设置</div></li>
                </ul>
               
             </div><!-- /.navbar-collapse -->
           </div><!-- /.container-fluid -->
         </nav>
+        <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+            <div class="modal-dialog modal-lg" role="document">
+                <div class="modal-content">
+                    ...
+                </div>
+            </div>
+        </div>
+
     </div><!--  end container-->
     
     <div class='blurred-container'>
@@ -68,7 +76,7 @@
         <div class="img-src" style="background-image: url('assets/img/cover_4.jpg')"></div>
         <div class='img-src blur' style="background-image: url('assets/img/cover_4_blur.jpg')"></div>
     </div>
-    
+
 </div>     
 </body>
 
