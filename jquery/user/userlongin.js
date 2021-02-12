@@ -34,7 +34,7 @@ function registered(){
     }
     $.ajax({
         type:"post",
-        url:"http://192.168.1.30:8080/user/registered",
+        url:"http://localhost:8080/user/registered",
         dataType:'json',
         data:{
             "phone":userSignOutPhone,
