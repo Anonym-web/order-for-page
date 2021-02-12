@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="../jquery-1.10.2.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <input id="upload" type="file">
+    <img id="preview" src="">
+     <script>
+             $('#upload').change(function(){
+                     var obj = document.getElementById('upload').files[0];
+                     var asrc = window.URL.createObjectURL(obj);
+                    document.getElementById("preview").src = asrc;
+                 })
+     </script>
+</body>
+</html>

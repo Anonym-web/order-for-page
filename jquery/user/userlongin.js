@@ -1,32 +1,8 @@
 
+/*登录*/
 function login(){
     var username = document.getElementById('userSignIn').value;
     var userpassword = document.getElementById('passwordSignIn').value;
-    /*alert(username);
-    axios({
-        url: 'http://localhost:8080/user/login',
-        method: 'post',
-        data: {
-            "name": username,
-            "password": userpassword
-        },
-        transformRequest: [function (data) {
-            var oMyForm = new FormData();
-            oMyForm.append("name", username);
-            oMyForm.append("password", userpassword);
-            console.info(oMyForm);
-            return oMyForm;
-        }],
-        headers: {
-            'Content-Type': 'application/json;charset=utf-8'
-        }
-    })
-        .then(function (response) {
-            alert("1111");
-        })
-        .catch(function (error) {
-            console.log(error);
-        });*/
     $.ajax({
         type:"post",
         url:"http://192.168.1.30:8080/user/login",
@@ -34,14 +10,7 @@ function login(){
         data:{"name":username,"password":userpassword},
         async:true,
         success:function (data) {
-            if(data.retCode == 1){
-                if(data.dataRows == "OrdinaryUser"){
-                    /*证明是普通用户*/
-                    window.location.href = "user.html"
-                }
-            }else{
-                error();
-            }
+            successHref(data)
         },
         error:function () {
             alert("0");
@@ -50,6 +19,7 @@ function login(){
 }
 
 
+/*注册*/
 function registered(){
     var userSignOutPhone = document.getElementById('userSignOutPhone').value;
     var passwordSignOutOne = document.getElementById('passwordSignOutOne').value;
@@ -62,31 +32,6 @@ function registered(){
             typeValue = radio[i].value;
         }
     }
-    /*alert(username);
-    axios({
-        url: 'http://localhost:8080/user/login',
-        method: 'post',
-        data: {
-            "name": username,
-            "password": userpassword
-        },
-        transformRequest: [function (data) {
-            var oMyForm = new FormData();
-            oMyForm.append("name", username);
-            oMyForm.append("password", userpassword);
-            console.info(oMyForm);
-            return oMyForm;
-        }],
-        headers: {
-            'Content-Type': 'application/json;charset=utf-8'
-        }
-    })
-        .then(function (response) {
-            alert("1111");
-        })
-        .catch(function (error) {
-            console.log(error);
-        });*/
     $.ajax({
         type:"post",
         url:"http://192.168.1.30:8080/user/registered",
@@ -99,7 +44,7 @@ function registered(){
         },
         async:true,
         success:function (data) {
-            alert("1")
+            successHref(data);
         },
         error:function () {
             alert("0");
@@ -109,6 +54,7 @@ function registered(){
 
 }
 
+/*验证密码是否一致*/
 function verificationPassword() {
     var passwordSignOutOne = document.getElementById('passwordSignOutOne').value;
     var passwordSignOutTwo = document.getElementById('passwordSignOutTwo').value;
@@ -117,5 +63,25 @@ function verificationPassword() {
         xianshi.innerText = "";
     }else{
         xianshi.innerText = "密码与确认密码不一致";
+    }
+}
+
+/*登录或注册成功后的逻辑*/
+function successHref(data){
+    if(data.retCode == 1){
+        if(data.dataRows.type == "OrdinaryUser"){
+            /*证明是普通用户*/
+            window.location.href = "user.html?phone="+data.dataRows.phone
+            /*window.location.href = "user.html"*/
+        }
+        if(data.dataRows.type == "business"){
+            /*证明是普通用户*/
+            window.location.href = "business.html?phone="+data.dataRows.phone
+        }
+    }else{
+        if(data.retCode == 0){
+            alert(data.retVal);
+            return;
+        }
     }
 }
