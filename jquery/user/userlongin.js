@@ -66,6 +66,87 @@ function verificationPassword() {
     }
 }
 
+function verificationPhone() {
+    var userSignOutPhone = document.getElementById("userSignOutPhone").value;
+    var phoneXianshi = document.getElementById("phoneXianshi");
+    if($.trim(userSignOutPhone)==''||$.trim(userSignOutPhone)=='手     机:'||$.trim(userSignOutPhone)==null){
+        phoneXianshi.innerText = "手机号不能为空";
+        return false;
+    }else{
+        phoneXianshi.innerText = '';
+    }
+    //验证手机号
+    var pattern = /^[1][3,4,5,7,8][0-9]{9}$/;
+    if(!pattern.test(userSignOutPhone)) {
+        phoneXianshi.innerText = "请输入正确的手机格式";
+        return false;
+    }else{
+        phoneXianshi.innerText = '';
+    }
+
+    /*验证手机号是否存在*/
+    $.ajax({
+        type:"post",
+        url:"http://localhost:8080/user/verificationEmailOrphone",
+        dataType:'json',
+        data:{
+            "phone":userSignOutPhone
+        },
+        async:true,
+        success:function (data) {
+            if(data.retCode == 0){
+                phoneXianshi.innerText = data.retVal;
+            }else if (data.retCode == 1){
+                phoneXianshi.innerText = "√";
+                phoneXianshi.style.color = 'green';
+            }
+        },
+        error:function () {
+            alert("0");
+        }
+    });
+}
+
+function verificationEmail() {
+    var email = document.getElementById("email").value;
+    var emailXianshi = document.getElementById("emailXianshi");
+    if($.trim(email)==''||$.trim(email)=='邮    箱:'||$.trim(email)==null){
+        emailXianshi.innerText = "邮箱不能为空";
+        return false;
+    }else {
+        emailXianshi.innerText = "";
+    }
+    //验证邮箱
+    var reg = /^\w+((-\w+)|(\.\w+))*\@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z0-9]+$/;
+    if(!reg.test(email)) {
+        emailXianshi.innerText = "请输入正确的邮箱格式";
+        return false;
+    }else{
+        emailXianshi.innerText = "";
+    }
+    /*验证邮箱是否存在*/
+    $.ajax({
+        type:"post",
+        url:"http://localhost:8080/user/verificationEmailOrphone",
+        dataType:'json',
+        data:{
+            "email":email
+        },
+        async:true,
+        success:function (data) {
+            if(data.retCode == 0){
+                emailXianshi.innerText = data.retVal;
+            }else if (data.retCode == 1){
+                emailXianshi.innerText = "√";
+                emailXianshi.style.color = 'green';
+            }
+        },
+        error:function () {
+            alert("0");
+        }
+    });
+}
+
 /*登录或注册成功后的逻辑*/
 function successHref(data){
     if(data.retCode == 1){

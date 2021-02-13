@@ -46,7 +46,8 @@
 					<div class="sign-up-htm">
 						<div class="group">
 							<label for="user" class="label">phone</label>
-							<input id="userSignOutPhone" type="text" class="input">
+							<input id="userSignOutPhone" type="text" class="input"  onblur="verificationPhone()">
+							<div id = "phoneXianshi" style="width: 300px; height: 50px; color: red; margin-left: 400px;margin-top: -50px;font-size: 20px;color: red"></div>
 						</div>
 						<div class="group">
 							<label for="pass" class="label">Password</label>
@@ -59,7 +60,8 @@
 						</div>
 						<div class="group">
 							<label for="pass" class="label">Email Address</label>
-							<input id="emial" type="text" class="input">
+							<input id="email" type="text" class="input" onblur="verificationEmail()">
+							<div id="emailXianshi" style="width: 300px; height: 50px;margin-left: 400px;margin-top: -50px;color: red"></div>
 						</div>
 						<div class="radio">
 						  <label>
