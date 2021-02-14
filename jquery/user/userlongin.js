@@ -24,7 +24,7 @@ function registered(){
     var userSignOutPhone = document.getElementById('userSignOutPhone').value;
     var passwordSignOutOne = document.getElementById('passwordSignOutOne').value;
     var passwordSignOutTwo = document.getElementById('passwordSignOutTwo').value;
-    var emial = document.getElementById('emial').value;
+    var emial = document.getElementById('email').value;
     var radio = document.getElementsByName("optionsRadios");
     var typeValue;
     for(var i=0; i<radio.length; i ++) {
@@ -34,7 +34,7 @@ function registered(){
     }
     $.ajax({
         type:"post",
-        url:"http://localhost:8080/user/registered",
+        url:"http://192.168.1.30:8080/user/registered",
         dataType:'json',
         data:{
             "phone":userSignOutPhone,
@@ -87,7 +87,7 @@ function verificationPhone() {
     /*验证手机号是否存在*/
     $.ajax({
         type:"post",
-        url:"http://localhost:8080/user/verificationEmailOrphone",
+        url:"http://192.168.1.30:8080/user/verificationEmailOrphone",
         dataType:'json',
         data:{
             "phone":userSignOutPhone
@@ -127,7 +127,7 @@ function verificationEmail() {
     /*验证邮箱是否存在*/
     $.ajax({
         type:"post",
-        url:"http://localhost:8080/user/verificationEmailOrphone",
+        url:"http://192.168.1.30:8080/user/verificationEmailOrphone",
         dataType:'json',
         data:{
             "email":email
@@ -151,13 +151,14 @@ function verificationEmail() {
 function successHref(data){
     if(data.retCode == 1){
         if(data.dataRows.type == "OrdinaryUser"){
+            /*alert(data.dataRows.id);*/
             /*证明是普通用户*/
-            window.location.href = "user.html?phone="+data.dataRows.phone
+            window.location.href = "user.html?id="+data.dataRows.id
             /*window.location.href = "user.html"*/
         }
         if(data.dataRows.type == "business"){
             /*证明是普通用户*/
-            window.location.href = "business.html?phone="+data.dataRows.phone
+            window.location.href = "business.html?id="+data.dataRows.id
         }
     }else{
         if(data.retCode == 0){
