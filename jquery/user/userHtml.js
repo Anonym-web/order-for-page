@@ -61,7 +61,7 @@ $.ajax({
 						marginLeft = marginLeft+350;
 					}
 				}
-				$("#tr").append("<div class='shops'  style='margin-left:"+marginLeft+"px;margin-top:"+marginTop+"px;width: 250px;height: 300px;background: url(assets/img/bg.jpg);position: absolute'><div class='shopsDiv' style='width: 250px;height: 0px;background: grey;bottom: 0px;position: absolute'></div></div>");
+				$("#tr").append("<div class='shops'  style='margin-left:"+marginLeft+"px;margin-top:"+marginTop+"px;width: 250px;height: 300px;background: url(assets/img/bg.jpg);position: absolute'><div class='shopsDiv' style='background : white;width: 250px;height: 0px;bottom: 0px;position: absolute'><div class='shopDivli' style='width : 250px;height: 50px;position: absolute;display: none;text-align: center;font-size: 15px;line-height: 50px;word-wrap:break-word'>"+datalist[i].shopName+"</div><div class='shopDivli' style='width : 150px;height: 30px;position: absolute;display: none;margin-top: 50px;text-align: center;font-size: 15px;line-height: 30px;word-wrap:break-word'>"+datalist[i].shopAddr+"</div><div class='shopDivli' style='width : 100px;height: 30px;position: absolute;display: none;margin-top: 50px;margin-left: 150px;text-align: center;font-size: 15px;line-height: 30px;word-wrap:break-word'>总订单: "+datalist[i].orderTotal+"笔</div></div></div>");
 				item = item+1;
 			}
         }
@@ -85,8 +85,10 @@ $(".shops").mouseout(function (){
 
 $(document).on('mouseover','.shops',function(){
 	$(this).find(".shopsDiv").stop(false).animate({height:"80px"},500);
+    $(this).find(".shopDivli").css("display","block");
 })
 
 $(document).on('mouseout','.shops',function(){
 	$(this).find(".shopsDiv").stop(false).animate({height:"0px"},500);
+    $(this).find(".shopDivli").css("display","none");
 })

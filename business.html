@@ -40,7 +40,7 @@
                             </div>
                             <!--<button type="button" class="btn btn-primary" id = "ImgDisplay" style="width: 50px;height: 50px;border: 1px solid transparent;background-color: #fff;border-color: #457eff;border-radius: 30px" data-toggle="modal" data-target=".bs-example-modal-lg"></button>-->
 
-                            <div class="brand" id="userXianshiPhone" style="padding-top: 10px">
+                            <div class="brand" id="userXianshiPhone" style="padding-top: 10px;color: white">
                             </div>
                         </div>
                     </a>
@@ -68,13 +68,66 @@
     </div><!--  end container-->
 
     <div class='blurred-container'>
-        <div class="motto">
-            <div>Get</div>
-            <div class="border no-right-border">Sh</div><div class="border">it</div>
-            <div>Done</div>
+
+        <!--轮播图-->
+        <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+            <!-- Indicators -->
+            <ol class="carousel-indicators">
+                <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+                <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+                <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+            </ol>
+
+            <!-- Wrapper for slides -->
+            <div class="carousel-inner" role="listbox">
+                <div class="item active" style="height: 500px">
+                    <img src="assets/img/bg.jpg" alt="...">
+                    <div class="carousel-caption">
+                        ...
+                    </div>
+                </div>
+                <div class="item" style="height: 500px">
+                    <img src="assets/img/carousel_blue.png" alt="...">
+                    <div class="carousel-caption">
+                        ...
+                    </div>
+                </div>
+                ...
+            </div>
+
+            <!-- Controls -->
+            <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+                <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+                <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
         </div>
-        <div class="img-src" style="background-image: url('assets/img/cover_4.jpg')"></div>
+        <!--轮播图结束-->
         <div class='img-src blur' style="background-image: url('assets/img/cover_4_blur.jpg')"></div>
+    </div>
+    <div id="tr" style="width: 1519px;margin-top: 50px;position: relative" >
+        <!--<div class='shops'  style="margin-left:100px;width: 250px;height: 300px;background: red;position: absolute;">
+           <div class="shopsDiv" style="width: 250px;height: 0px;background: grey;bottom: 0px;position: absolute">
+               <div class='shopDivli' style='background: blue;width : 250px;height: 50px;position: absolute;display: none;text-align: center;font-size: 15px;line-height: 50px;word-wrap:break-word'></div>
+               <div class='shopDivli' style='background: yellow;width : 150px;height: 30px;position: absolute;display: none;margin-top: 50px;text-align: center;font-size: 15px;line-height: 30px;word-wrap:break-word'>addr</div>
+               <div class='shopDivli' style='background: red;width : 100px;height: 30px;position: absolute;display: none;margin-top: 50px;margin-left: 150px;text-align: center;font-size: 15px;line-height: 30px;word-wrap:break-word'>总订单: 笔</div>
+           </div>
+       </div>
+       <div class='shops' style="width: 250px;height: 300px;background: blue;margin-left:450px;position: absolute">
+           <div class="shopsDiv" style="width: 250px;height: 0px;background: grey;bottom: 0px;position: absolute"></div>
+       </div>
+       <div class='shops' style="width: 250px;height: 300px;background: yellow;margin-left:800px;position: absolute">
+           <div class="shopsDiv" style="width: 250px;height: 0px;background: grey;bottom: 0px;position: absolute"></div>
+       </div>
+       <div class='shops' style="width: 250px;height: 300px;background: blue;margin-left:1150px;position: absolute">
+           <div class="shopsDiv" style="width: 250px;height: 0px;background: grey;bottom: 0px;position: absolute"></div>
+       </div>
+       <div class='shops' style="width: 250px;height: 300px;background: blue;margin-top:350px;margin-left:100px;position: absolute">
+           <div class="shopsDiv" style="width: 250px;height: 0px;background: grey;bottom: 0px;position: absolute"></div>
+       </div>-->
     </div>
 
 </div>
@@ -88,40 +141,18 @@
 <script src="assets/js/gsdk-radio.js"></script>
 <script src="assets/js/gsdk-bootstrapswitch.js"></script>
 <script src="assets/js/get-shit-done.js"></script>
-<script src="assets/js/custom.js"></script>
+
 <script type="application/javascript" src="jquery/user/businessHtml.js"></script>
+<!-- <script type="text/javascript">
+    $(".shops").mouseover(function () {
 
-<script type="text/javascript">
-
-    $('.btn-tooltip').tooltip();
-    $('.label-tooltip').tooltip();
-    $('.pick-class-label').click(function(){
-        var new_class = $(this).attr('new-class');
-        var old_class = $('#display-buttons').attr('data-class');
-        var display_div = $('#display-buttons');
-        if(display_div.length) {
-            var display_buttons = display_div.find('.btn');
-            display_buttons.removeClass(old_class);
-            display_buttons.addClass(new_class);
-            display_div.attr('data-class', new_class);
-        }
-    });
-    $( "#slider-range" ).slider({
-        range: true,
-        min: 0,
-        max: 500,
-        values: [ 75, 300 ],
-    });
-    $( "#slider-default" ).slider({
-        value: 70,
-        orientation: "horizontal",
-        range: "min",
-        animate: true
-    });
-    $('.carousel').carousel({
-        interval: 4000
+        $(this).find(".shopsDiv").stop(false).animate({height:"80px"},500);
     });
 
 
-</script>
+    $(".shops").mouseout(function (){
+        $(this).find(".shopsDiv").stop(false).animate({height:"0px"},500);
+    })
+
+</script> -->
 </html>
