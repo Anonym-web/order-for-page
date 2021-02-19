@@ -5,7 +5,7 @@ function login(){
     var userpassword = document.getElementById('passwordSignIn').value;
     $.ajax({
         type:"post",
-        url:"http://192.168.1.30:8080/user/login",
+        url:"http://localhost:8080/user/login",
         dataType:'json',
         data:{"name":username,"password":userpassword},
         async:true,
@@ -34,7 +34,7 @@ function registered(){
     }
     $.ajax({
         type:"post",
-        url:"http://192.168.1.30:8080/user/registered",
+        url:"http://localhost:8080/user/registered",
         dataType:'json',
         data:{
             "phone":userSignOutPhone,
@@ -87,7 +87,7 @@ function verificationPhone() {
     /*验证手机号是否存在*/
     $.ajax({
         type:"post",
-        url:"http://192.168.1.30:8080/user/verificationEmailOrphone",
+        url:"http://localhost:8080/user/verificationEmailOrphone",
         dataType:'json',
         data:{
             "phone":userSignOutPhone
@@ -127,7 +127,7 @@ function verificationEmail() {
     /*验证邮箱是否存在*/
     $.ajax({
         type:"post",
-        url:"http://192.168.1.30:8080/user/verificationEmailOrphone",
+        url:"http://localhost:8080/user/verificationEmailOrphone",
         dataType:'json',
         data:{
             "email":email

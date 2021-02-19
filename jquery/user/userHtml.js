@@ -10,7 +10,7 @@ if(searchText == ""){
 
 $.ajax({
     type:"post",
-    url:"http://192.168.1.30:8080/user/selectUserById",
+    url:"http://localhost:8080/user/selectUserById",
     dataType:'json',
     data:{
         "id":searchText
@@ -33,7 +33,7 @@ $.ajax({
 
 $.ajax({
     type:"post",
-    url:"http://192.168.1.30:8080/shop/selectShop",
+    url:"http://localhost:8080/shop/selectShop",
     dataType:'json',
     data:{
         "type" : "OrdinaryUser",
