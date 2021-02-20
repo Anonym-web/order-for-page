@@ -9,14 +9,9 @@
 	</head>
 	<body>
 		<script type="application/javascript">
-			
-			axios.post('http://localhost:8080/testVue', {
-				firstName: 'Fred',
-				withCredentials:true,
-				headers:{
-					'Access-Control-Allow-Headers':'*'
-				}
-			})
+			var params = new URLSearchParams();
+			params.append("firstName","Fred")
+			axios.post('http://localhost:8080/testVue',params)
 			  .then(function (response) {
 				alert(response)
 			})
