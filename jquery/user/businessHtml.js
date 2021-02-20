@@ -41,9 +41,7 @@ $.ajax({
     async:true,
     success:function (data) {
         if (data.retCode == 1){
-            if (data.dataRows == "" ){
-                alert("暂时还没有店铺哦");
-            }
+			$("#addShopsyUser").html("");
             var datalist = data.dataRows;
             var marginLeft = 0;
             var marginTop = 0;

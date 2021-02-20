@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Access-Control-Allow-Origin" content="*" />
+		<meta charset="utf-8">
+		<title></title>
+
+		<script type="application/javascript" src="jquery/axios.min.js"></script>
+	</head>
+	<body>
+		<script type="application/javascript">
+			
+			axios.post('http://localhost:8080/testVue', {
+				firstName: 'Fred',
+				withCredentials:true,
+				headers:{
+					'Access-Control-Allow-Headers':'*'
+				}
+			})
+			  .then(function (response) {
+				alert(response)
+			})
+			  .catch(function (error) {
+				console.log(error);
+			});
+		</script>
+	</body>
+</html>

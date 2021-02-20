@@ -38,7 +38,6 @@
                             <div class="logo">
                                 <img src="assets/img/new_logo.png">
                             </div>
-                            <!--<button type="button" class="btn btn-primary" id = "ImgDisplay" style="width: 50px;height: 50px;border: 1px solid transparent;background-color: #fff;border-color: #457eff;border-radius: 30px" data-toggle="modal" data-target=".bs-example-modal-lg"></button>-->
 
                             <div class="brand" id="userXianshiPhone" style="padding-top: 10px;color: white">
                             </div>
@@ -50,6 +49,9 @@
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav navbar-right">
                         <li><a href="components.html" id = "loginOrloginUp">登录/注册</a></li>
+						
+						<!-- 添加店铺按钮 -->
+						<li id="addShopsyUser" style="color: white"><div class=" glyphicon glyphicon-plus" style="margin-right: 60px;margin-top: 30px;color: white;cursor: pointer;" data-toggle="modal" data-target="#myShopAddModal">添加店铺</div></li>
 
                         <li style="border: 1px solid white;border-radius: 20px;width: 100px;height: 50px;margin-top: 15px;padding-left: 17px;padding-top: 15px;cursor: pointer" data-toggle="modal" data-target=".bs-example-modal-lg"><span class="glyphicon glyphicon-cog"></span><div style="margin-top: -25px;margin-left: 30px">设置</div></li>
                     </ul>
@@ -129,7 +131,25 @@
            <div class="shopsDiv" style="width: 250px;height: 0px;background: grey;bottom: 0px;position: absolute"></div>
        </div>-->
     </div>
-
+	<!-- 添加店铺的模态窗口 -->
+	<!-- Modal -->
+	<div class="modal fade" id="myShopAddModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+	  <div class="modal-dialog" role="document">
+		<div class="modal-content">
+		  <div class="modal-header">
+			<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+			<h4 class="modal-title" id="myModalLabel">Modal title</h4>
+		  </div>
+		  <div class="modal-body">
+			...
+		  </div>
+		  <div class="modal-footer">
+			<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+			<button type="button" class="btn btn-primary">Save changes</button>
+		  </div>
+		</div>
+	  </div>
+	</div>
 </div>
 </body>
 
